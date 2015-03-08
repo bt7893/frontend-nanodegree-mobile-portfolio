@@ -15,5 +15,7 @@
     > pizzeria.jpg - reduced size, removed metadata and saved at 100px x 73px
 3. main.js file:
     > document.querySelectorAll(".randomPizzaContainer") variable - moved this variable so that it sits outside the function to reduce iterations to fetch the data.
-4. Minify js --> http://jscompress.com/
-5. Minify css --> http://cssminifier.com/
+4. Minify js
+    > main.js --> http://jscompress.com/
+5. Minify css
+    > bootstrap-grid.css --> http://cssminifier.com/
