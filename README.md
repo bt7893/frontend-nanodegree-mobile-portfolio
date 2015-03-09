@@ -34,21 +34,22 @@
 1. Inline CSS styling:
     > pizza.html - embedded the style.css file
 2. Optimized images:
-    > pizza.png - reduced size, removed metadata and saved as PNG 8 bit
-    > pizzeria.jpg - reduced size, removed metadata and saved at 100px x 73px
-3. main.js file:
-    > document.querySelectorAll(".randomPizzaContainer") variable - moved this variable so that it sits outside the loop function to reduce iterations to fetch the data.
-    > document.getElementById("randomPizzas")
-    > document.querySelector("#pizzaSize").innerHTML
-    > var windowwidth = document.querySelector("#randomPizzas").offsetWidth;
-    > reduced number of sliding pizzas generated from 200 to 30. You only need 30 to fill the page.
+    > pizza.png - reduced size and removed metadata
+                - modified CSS .mover where "width: 100px" is added to eliminate the process of resizing during the iterative function
+    > pizzeria.jpg - reduced size and removed metadata
+3. main.js file
+    > Please see detailed notes below
 4. Minify js
     > main.js --> http://jscompress.com/
 5. Minify css
     > bootstrap-grid.css --> http://cssminifier.com/
 
-6. As a result of minify js, comments were stripped, thus I am including the original code below:
-##### Original
+#### Changing Pizza Sizes
+> modified the for loop to be more efficient
+> reduced number of sliding pizzas generated from 200 to 30. You only need 30 to populate the page.
+> removed the width and height style to eliminate the process of resizing. Pizza.png were resized in Photoshop as 100px x 77px. Metadata is removed to reduce filesize.
+
+##### Original:
       // Iterates through pizza elements on the page and changes their widths
       function changePizzaSizes(size) {
         for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
@@ -57,18 +58,24 @@
           document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
         }
       }
-##### Modified
+##### Modified:
       var randomPizza = document.querySelectorAll(".randomPizzaContainer"); // moved this variable so that it sits outside the function to reduce iterations to fetch the data.
       // Iterates through pizza elements on the page and changes their widths
       function changePizzaSizes(size) {
-        for (var i = 0; i < randomPizza.length; i++) {
-          var dx = determineDx(randomPizza[i], size);
-          var newwidth = (randomPizza[i].offsetWidth + dx) + 'px';
-          randomPizza[i].style.width = newwidth;
+        var dx = determineDx(document.querySelector(".randomPizzaContainer"), size);
+        var newwidth = (document.querySelector(".randomPizzaContainer").offsetWidth + dx) + 'px';
+        var pizzaCount = document.querySelectorAll(".randomPizzaContainer");
+        for (var i = pizzaCount.length; i--;) {
+          pizzaCount[i].style.width = newwidth;
         }
       }
-##### Original
-      // Generates the sliding pizzas when the page loads.
+
+#### Sliding Pizza Generator
+> modified the for loop to be more efficient
+> reduced number of sliding pizzas generated from 200 to 30. You only need 30 to populate the page.
+> removed the width and height style to eliminate the process of resizing. Pizza.png were resized in Photoshop as 100px x 77px. Metadata is removed to reduce filesize.
+
+##### Original:
       document.addEventListener('DOMContentLoaded', function() {
         var cols = 8;
         var s = 256;
@@ -85,25 +92,57 @@
         updatePositions();
       });
 
-##### Modified
-// Generates the sliding pizzas when the page loads.
+##### Modified:
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 30; i++) {  // changed from 300 to 30 pizzas
+for (var cols = 8, s = 256, i = 30; i--; ) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
-    elem.style.height = "100px";
-    elem.style.width = "73px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    movingPizzas1tag.appendChild(elem);
   }
   updatePositions();
 });
 
+#### updatePositions
+> added cachedScrollTop and placed it outside the for loop
 
-#### Results
+##### Original:
+function updatePositions() {
+  frame++;
+  window.performance.mark("mark_start_frame");
+
+  var items = document.querySelectorAll('.mover');
+  for (var i = 0; i < items.length; i++) {
+    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+  }
+
+##### Modified:
+// Moves the sliding background pizzas based on scroll position
+function updatePositions() {
+  frame++;
+  window.performance.mark("mark_start_frame");
+  var items = document.querySelectorAll('.mover');
+  var cachedScrollTop = document.body.scrollTop;
+  for (var i = 0; i < items.length; i++) {
+    var phase = Math.sin((cachedScrollTop / 1250) + (i % 5));
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+  }
+
+### Results
 1. Page Speed over 60fps during scrolling (via console.log)
 2. Time to resize under 5ms
+
+### References
+1. https://css-tricks.com/authoring-critical-fold-css/
+2. https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
+
+### Tools
+1. Adobe Photoshop CS6 - https://www.adobe.com/products/photoshop.html?promoid=KLXLS
+2. ImageMagick - http://www.imagemagick.org/
+3. Minify JS - http://jscompress.com
+4. Minify CSS - http://cssminifier.com
