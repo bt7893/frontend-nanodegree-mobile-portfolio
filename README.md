@@ -37,7 +37,10 @@
     > pizza.png - reduced size, removed metadata and saved as PNG 8 bit
     > pizzeria.jpg - reduced size, removed metadata and saved at 100px x 73px
 3. main.js file:
-    > document.querySelectorAll(".randomPizzaContainer") variable - moved this variable so that it sits outside the function to reduce iterations to fetch the data.
+    > document.querySelectorAll(".randomPizzaContainer") variable - moved this variable so that it sits outside the loop function to reduce iterations to fetch the data.
+    > document.getElementById("randomPizzas")
+    > document.querySelector("#pizzaSize").innerHTML
+    > var windowwidth = document.querySelector("#randomPizzas").offsetWidth;
     > reduced number of sliding pizzas generated from 200 to 30. You only need 30 to fill the page.
 4. Minify js
     > main.js --> http://jscompress.com/
