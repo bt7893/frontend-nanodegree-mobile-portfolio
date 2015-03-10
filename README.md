@@ -1,65 +1,148 @@
-## Website Performance Optimization portfolio project
+## Website Performance Optimization:
+Launch the URL : http://bt7893.github.io/frontend-nanodegree-mobile-portfolio/landing-page.html
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
-To get started, check out the repository, inspect the code,
+### Optimizations Performed
 
-### Getting started
+1. Inline CSS styling:
+    - landing-page.html - embedded the style.css file
+    - added media="print" for print.css since it is render blocking
+2. Optimized images:
+    - profilepic.jpg - reduced size, removed metadata
+3. Added async attribute for perfmatters.js:
+    - added the async attribute so that the script is executed asynchronously as soon as it is available.
+4. Minify js
+    - perfmatters.js --> http://jscompress.com/
+5. Added .htaccess file to leverage browser caching
 
-Some useful tips to help you get started:
+#### Results
+1. PageSpeed Insights:
+    - Mobile: 95/100
+    - Desktop: 96/100
 
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
 
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
+***
 
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to make your local server accessible remotely.
 
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ngrok 8080
-  ```
+## Cam's Pizzeria
+1. Launch the URL : bt7893.github.com/frontend-nanodegree-mobile-portfolio/views/pizza.html
+2. Move the slider to change the pizza size (open web inspector console log to check the time it takes to redraw the page)
+3. Scrolling the page - Console.log should show 60 frames under 1ms (which means each redraw is higher than 60 fps)
 
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
+### Optimizations Performed
+1. Inline CSS styling:
+   - pizza.html - embedded the style.css file
+2. Optimized images:
+   - pizza.png - reduced size and removed metadata
+   - pizzeria.jpg - reduced size and removed metadata
+3. Modified CSS .mover where "width: 100px" is added to eliminate the process of resizing during the iterative
+   function
+4. main.js file
+    - Please see detailed notes below
+5. Minify js
+    - Minified "main.js" using [Minify JS](http://jscompress.com/)
+6. Minify css
+    - Minified "bootstrap-grid.css" using [CSS Minifier](http://cssminifier.com/)
 
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
+#### Changing Pizza Sizes
+1. Moved the variable "dx" and "newwitdh" and placed it outside the loop.
+2. Created a new variable "randomPizza" and placed it outside the loop.
+3. Modified the for loop to be more efficient.
 
-### Optimization Tips and Tricks
-* [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
-* [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
-* [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
-* [Avoiding Rendering Blocking CSS](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css.html "render blocking css")
-* [Optimizing JavaScript](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript.html "javascript")
-* [Measuring with Navigation Timing](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp.html "nav timing api"). We didn't cover the Navigation Timing API in the first two lessons but it's an incredibly useful tool for automated page profiling. I highly recommend reading.
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/eliminate-downloads.html">The fewer the downloads, the better</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer.html">Reduce the size of text</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization.html">Optimize images</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching.html">HTTP caching</a>
+##### Original:
+      // Iterates through pizza elements on the page and changes their widths
+      function changePizzaSizes(size) {
+        for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+          var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+          var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+          document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+        }
+      }
+##### Modified:
+      var randomPizza = document.querySelectorAll(".randomPizzaContainer"); // moved this variable so that it sits outside the function to reduce iterations to fetch the data.
+      // Iterates through pizza elements on the page and changes their widths
+      function changePizzaSizes(size) {
+        var dx = determineDx(document.querySelector(".randomPizzaContainer"), size);
+        var newwidth = (document.querySelector(".randomPizzaContainer").offsetWidth + dx) + 'px';
+        var pizzaCount = document.querySelectorAll(".randomPizzaContainer");
+        for (var i = pizzaCount.length; i--;) {
+          pizzaCount[i].style.width = newwidth;
+        }
+      }
 
-### Customization with Bootstrap
-The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstrap</a> framework. All custom styles are in `dist/css/portfolio.css` in the portfolio repo.
+#### Sliding Pizza Generator
+1. Modified the for loop to be more efficient.
+2. Reduced number of sliding pizzas generated from 200 to 30. You only need 30 to populate the page.
+3. Removed the width and height style to eliminate the process of resizing. Pizza.png were resized in Photoshop as
+   100px x 77px. Metadata removed to reduce filesize.
 
-* <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
-* <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+##### Original:
+      document.addEventListener('DOMContentLoaded', function() {
+        var cols = 8;
+        var s = 256;
+        for (var i = 0; i < 200; i++) {
+          var elem = document.createElement('img');
+          elem.className = 'mover';
+          elem.src = "images/pizza.png";
+          elem.style.height = "100px";
+          elem.style.width = "73px";
+          elem.basicLeft = (i % cols) * s;
+          elem.style.top = (Math.floor(i / cols) * s) + 'px';
+          document.querySelector("#movingPizzas1").appendChild(elem);
+        }
+        updatePositions();
+      });
 
-### Sample Portfolios
+##### Modified:
+        document.addEventListener('DOMContentLoaded', function() {
+          var cols = 8;
+          var s = 256;
+        for (var cols = 8, s = 256, i = 30; i--; ) {
+            var elem = document.createElement('img');
+            elem.className = 'mover';
+            elem.src = "images/pizza.png";
+            elem.basicLeft = (i % cols) * s;
+            elem.style.top = (Math.floor(i / cols) * s) + 'px';
+            movingPizzas1tag.appendChild(elem);
+          }
+          updatePositions();
+        });
 
-Feeling uninspired by the portfolio? Here's a list of cool portfolios I found after a few minutes of Googling.
+#### updatePositions
+Added cachedScrollTop and placed it outside the for loop.
 
-* <a href="http://www.reddit.com/r/webdev/comments/280qkr/would_anybody_like_to_post_their_portfolio_site/">A great discussion about portfolios on reddit</a>
-* <a href="http://ianlunn.co.uk/">http://ianlunn.co.uk/</a>
-* <a href="http://www.adhamdannaway.com/portfolio">http://www.adhamdannaway.com/portfolio</a>
-* <a href="http://www.timboelaars.nl/">http://www.timboelaars.nl/</a>
-* <a href="http://futoryan.prosite.com/">http://futoryan.prosite.com/</a>
-* <a href="http://playonpixels.prosite.com/21591/projects">http://playonpixels.prosite.com/21591/projects</a>
-* <a href="http://colintrenter.prosite.com/">http://colintrenter.prosite.com/</a>
-* <a href="http://calebmorris.prosite.com/">http://calebmorris.prosite.com/</a>
-* <a href="http://www.cullywright.com/">http://www.cullywright.com/</a>
-* <a href="http://yourjustlucky.com/">http://yourjustlucky.com/</a>
-* <a href="http://nicoledominguez.com/portfolio/">http://nicoledominguez.com/portfolio/</a>
-* <a href="http://www.roxannecook.com/">http://www.roxannecook.com/</a>
-* <a href="http://www.84colors.com/portfolio.html">http://www.84colors.com/portfolio.html</a>
+##### Original:
+        function updatePositions() {
+          frame++;
+          window.performance.mark("mark_start_frame");
+
+          var items = document.querySelectorAll('.mover');
+          for (var i = 0; i < items.length; i++) {
+            var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+            items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+          }
+
+##### Modified:
+        function updatePositions() {
+          frame++;
+          window.performance.mark("mark_start_frame");
+          var items = document.querySelectorAll('.mover');
+          var cachedScrollTop = document.body.scrollTop;
+          for (var i = 0; i < items.length; i++) {
+            var phase = Math.sin((cachedScrollTop / 1250) + (i % 5));
+            items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+          }
+
+### Results
+1. Page Speed over 60 fps during scrolling (via console.log)
+2. Time to resize under 5 ms
+
+### References
+1. https://css-tricks.com/authoring-critical-fold-css/
+2. https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
+
+### Tools
+1. Adobe Photoshop CS6 - https://www.adobe.com/products/photoshop.html?promoid=KLXLS
+2. ImageMagick - http://www.imagemagick.org/
+3. Minify JS - http://jscompress.com
+4. Minify CSS - http://cssminifier.com
