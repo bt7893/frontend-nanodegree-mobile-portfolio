@@ -23,31 +23,34 @@
     > Desktop: 96/100
 
 
-## Cam's Pizzeria
+***
 
+
+## Cam's Pizzeria
 1. Launch the URL : bt7893.github.com/frontend-nanodegree-mobile-portfolio/views/pizza.html
 2. Move the slider to change the pizza size (open web inspector console log to check the time it takes to redraw the page)
 3. Scrolling the page - the console log should show 60 frames under 1ms (which means each redraw is higher than 60fps)
 
 ### Optimizations Performed
-
 1. Inline CSS styling:
-    > pizza.html - embedded the style.css file
+   - pizza.html - embedded the style.css file
 2. Optimized images:
-    > pizza.png - reduced size and removed metadata
-                - modified CSS .mover where "width: 100px" is added to eliminate the process of resizing during the iterative function
-    > pizzeria.jpg - reduced size and removed metadata
-3. main.js file
+   - pizza.png - reduced size and removed metadata
+   - pizzeria.jpg - reduced size and removed metadata
+3. modified CSS .mover where "width: 100px" is added to eliminate the process of resizing during the iterative   
+   function
+4. main.js file
     > Please see detailed notes below
-4. Minify js
-    > main.js --> http://jscompress.com/
-5. Minify css
-    > bootstrap-grid.css --> http://cssminifier.com/
+5. Minify js
+    > main.js using [Minify JS](http://jscompress.com/)
+6. Minify css
+    > bootstrap-grid.css using [CSS Minifier](http://cssminifier.com/)
 
 #### Changing Pizza Sizes
-> modified the for loop to be more efficient
-> reduced number of sliding pizzas generated from 200 to 30. You only need 30 to populate the page.
-> removed the width and height style to eliminate the process of resizing. Pizza.png were resized in Photoshop as 100px x 77px. Metadata is removed to reduce filesize.
+1. Modified the for loop to be more efficient
+2. Reduced number of sliding pizzas generated from 200 to 30. You only need 30 to populate the page.
+3. Removed the width and height style to eliminate the process of resizing. Pizza.png were resized in Photoshop as 
+   100px x 77px. Metadata is removed to reduce filesize.
 
 ##### Original:
       // Iterates through pizza elements on the page and changes their widths
@@ -71,9 +74,10 @@
       }
 
 #### Sliding Pizza Generator
-> modified the for loop to be more efficient
-> reduced number of sliding pizzas generated from 200 to 30. You only need 30 to populate the page.
-> removed the width and height style to eliminate the process of resizing. Pizza.png were resized in Photoshop as 100px x 77px. Metadata is removed to reduce filesize.
+1. Modified the for loop to be more efficient
+2. Reduced number of sliding pizzas generated from 200 to 30. You only need 30 to populate the page.
+3. Removed the width and height style to eliminate the process of resizing. Pizza.png were resized in Photoshop as 
+   100px x 77px. Metadata is removed to reduce filesize.
 
 ##### Original:
       document.addEventListener('DOMContentLoaded', function() {
@@ -108,7 +112,7 @@ for (var cols = 8, s = 256, i = 30; i--; ) {
 });
 
 #### updatePositions
-> added cachedScrollTop and placed it outside the for loop
+Added cachedScrollTop and placed it outside the for loop
 
 ##### Original:
 function updatePositions() {
