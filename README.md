@@ -1,6 +1,6 @@
 # Website Performance Optimization:
 
-## CRP for index.html
+## Critical Rendering Path for index.html
 
 1. Launch the URL : bt7893.github.io/frontend-nanodegree-mobile-portfolio/index.html
 
