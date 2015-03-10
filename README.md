@@ -112,7 +112,7 @@ for (var cols = 8, s = 256, i = 30; i--; ) {
 });
 
 #### updatePositions
-Added cachedScrollTop and placed it outside the for loop
+Added cachedScrollTop and placed it outside the for loop.
 
 ##### Original:
 function updatePositions() {
@@ -126,7 +126,6 @@ function updatePositions() {
   }
 
 ##### Modified:
-// Moves the sliding background pizzas based on scroll position
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
