@@ -1,41 +1,56 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Frontend-nanodegree-mobile-portfolio : Project P4: Website Optimization">
+    <meta name="viewport" content="width=640">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
 
-    <title>Frontend-nanodegree-mobile-portfolio</title>
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Frontend-nanodegree-mobile-portfolio by bt7893</title>
   </head>
 
   <body>
+    <a id="forkme_banner" href="https://github.com/bt7893/frontend-nanodegree-mobile-portfolio">View on GitHub</a>
+    <div class="shell">
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/bt7893/frontend-nanodegree-mobile-portfolio">View on GitHub</a>
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Frontend-nanodegree-mobile-portfolio</h1>
+            <h2>Project P4: Website Optimization</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
 
-          <h1 id="project_title">Frontend-nanodegree-mobile-portfolio</h1>
-          <h2 id="project_tagline">Project P4: Website Optimization</h2>
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/bt7893/frontend-nanodegree-mobile-portfolio/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/bt7893/frontend-nanodegree-mobile-portfolio/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/bt7893/frontend-nanodegree-mobile-portfolio/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/bt7893/frontend-nanodegree-mobile-portfolio/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
         <h1>
 <a id="website-performance-optimization" class="anchor" href="#website-performance-optimization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Website Performance Optimization:</h1>
 
 <h2>
-<a id="crp-for-indexhtml" class="anchor" href="#crp-for-indexhtml" aria-hidden="true"><span class="octicon octicon-link"></span></a>CRP for index.html</h2>
+<a id="critical-rendering-path-for-indexhtml" class="anchor" href="#critical-rendering-path-for-indexhtml" aria-hidden="true"><span class="octicon octicon-link"></span></a>Critical Rendering Path for index.html</h2>
 
 <ol>
 <li>Launch the URL : bt7893.github.io/frontend-nanodegree-mobile-portfolio/index.html</li>
@@ -46,14 +61,30 @@
 
 <ol>
 <li>Inline CSS styling:
-&gt; index.html - embedded the style.css file
-&gt; added media="print" for print.css since it is render blocking</li>
+
+<ul>
+<li>index.html - embedded the style.css file</li>
+<li>added media="print" for print.css since it is render blocking</li>
+</ul>
+</li>
 <li>Optimized images:
-&gt; profilepic.jpg - reduced size, removed metadata</li>
+
+<ul>
+<li>profilepic.jpg - reduced size, removed metadata</li>
+</ul>
+</li>
 <li>Added async attribute for perfmatters.js:
-&gt; added the async attribute so that the script is executed asynchronously as soon as it is available.</li>
+
+<ul>
+<li>added the async attribute so that the script is executed asynchronously as soon as it is available.</li>
+</ul>
+</li>
 <li>Minify js
-&gt; perfmatters.js --&gt; <a href="http://jscompress.com/">http://jscompress.com/</a>
+
+<ul>
+<li>perfmatters.js --&gt; <a href="http://jscompress.com/">http://jscompress.com/</a>
+</li>
+</ul>
 </li>
 <li>Added .htaccess file to leverage browser caching</li>
 </ol>
@@ -63,8 +94,12 @@
 
 <ol>
 <li>PageSpeed Insights:
-&gt; Mobile: 95/100
-&gt; Desktop: 96/100</li>
+
+<ul>
+<li>Mobile: 95/100</li>
+<li>Desktop: 96/100</li>
+</ul>
+</li>
 </ol>
 
 <hr>
@@ -75,7 +110,7 @@
 <ol>
 <li>Launch the URL : bt7893.github.com/frontend-nanodegree-mobile-portfolio/views/pizza.html</li>
 <li>Move the slider to change the pizza size (open web inspector console log to check the time it takes to redraw the page)</li>
-<li>Scrolling the page - the console log should show 60 frames under 1ms (which means each redraw is higher than 60fps)</li>
+<li>Scrolling the page - Console.log should show 60 frames under 1ms (which means each redraw is higher than 60 fps)</li>
 </ol>
 
 <h3>
@@ -95,15 +130,27 @@
 <li>pizzeria.jpg - reduced size and removed metadata</li>
 </ul>
 </li>
-<li>modified CSS .mover where "width: 100px" is added to eliminate the process of resizing during the iterative<br>
+<li>Modified CSS .mover where "width: 100px" is added to eliminate the process of resizing during the iterative<br>
 function</li>
 <li>main.js file
-&gt; Please see detailed notes below</li>
+
+<ul>
+<li>Please see detailed notes below</li>
+</ul>
+</li>
 <li>Minify js
-&gt; main.js using <a href="http://jscompress.com/">Minify JS</a>
+
+<ul>
+<li>Minified "main.js" using <a href="http://jscompress.com/">Minify JS</a>
+</li>
+</ul>
 </li>
 <li>Minify css
-&gt; bootstrap-grid.css using <a href="http://cssminifier.com/">CSS Minifier</a>
+
+<ul>
+<li>Minified "bootstrap-grid.css" using <a href="http://cssminifier.com/">CSS Minifier</a>
+</li>
+</ul>
 </li>
 </ol>
 
@@ -111,10 +158,9 @@ function</li>
 <a id="changing-pizza-sizes" class="anchor" href="#changing-pizza-sizes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changing Pizza Sizes</h4>
 
 <ol>
-<li>Modified the for loop to be more efficient</li>
-<li>Reduced number of sliding pizzas generated from 200 to 30. You only need 30 to populate the page.</li>
-<li>Removed the width and height style to eliminate the process of resizing. Pizza.png were resized in Photoshop as 
-100px x 77px. Metadata is removed to reduce filesize.</li>
+<li>Moved the variable "dx" and "newwitdh" and placed it outside the loop.</li>
+<li>Created a new variable "randomPizza" and placed it outside the loop.</li>
+<li>Modified the for loop to be more efficient.</li>
 </ol>
 
 <h5>
@@ -149,10 +195,10 @@ function</li>
 <a id="sliding-pizza-generator" class="anchor" href="#sliding-pizza-generator" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sliding Pizza Generator</h4>
 
 <ol>
-<li>Modified the for loop to be more efficient</li>
+<li>Modified the for loop to be more efficient.</li>
 <li>Reduced number of sliding pizzas generated from 200 to 30. You only need 30 to populate the page.</li>
 <li>Removed the width and height style to eliminate the process of resizing. Pizza.png were resized in Photoshop as 
-100px x 77px. Metadata is removed to reduce filesize.</li>
+100px x 77px. Metadata removed to reduce filesize.</li>
 </ol>
 
 <h5>
@@ -178,58 +224,60 @@ function</li>
 <h5>
 <a id="modified-1" class="anchor" href="#modified-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modified:</h5>
 
-<p>document.addEventListener('DOMContentLoaded', function() {
-  var cols = 8;
-  var s = 256;
-for (var cols = 8, s = 256, i = 30; i--; ) {
-    var elem = document.createElement('img');
-    elem.className = 'mover';
-    elem.src = "images/pizza.png";
-    elem.basicLeft = (i % cols) * s;
-    elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    movingPizzas1tag.appendChild(elem);
-  }
-  updatePositions();
-});</p>
+<pre><code>    document.addEventListener('DOMContentLoaded', function() {
+      var cols = 8;
+      var s = 256;
+    for (var cols = 8, s = 256, i = 30; i--; ) {
+        var elem = document.createElement('img');
+        elem.className = 'mover';
+        elem.src = "images/pizza.png";
+        elem.basicLeft = (i % cols) * s;
+        elem.style.top = (Math.floor(i / cols) * s) + 'px';
+        movingPizzas1tag.appendChild(elem);
+      }
+      updatePositions();
+    });
+</code></pre>
 
 <h4>
 <a id="updatepositions" class="anchor" href="#updatepositions" aria-hidden="true"><span class="octicon octicon-link"></span></a>updatePositions</h4>
 
-<p>Added cachedScrollTop and placed it outside the for loop</p>
+<p>Added cachedScrollTop and placed it outside the for loop.</p>
 
 <h5>
 <a id="original-2" class="anchor" href="#original-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Original:</h5>
 
-<p>function updatePositions() {
-  frame++;
-  window.performance.mark("mark_start_frame");</p>
+<pre><code>    function updatePositions() {
+      frame++;
+      window.performance.mark("mark_start_frame");
 
-<p>var items = document.querySelectorAll('.mover');
-  for (var i = 0; i &lt; items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-  }</p>
+      var items = document.querySelectorAll('.mover');
+      for (var i = 0; i &lt; items.length; i++) {
+        var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+        items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+      }
+</code></pre>
 
 <h5>
 <a id="modified-2" class="anchor" href="#modified-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modified:</h5>
 
-<p>// Moves the sliding background pizzas based on scroll position
-function updatePositions() {
-  frame++;
-  window.performance.mark("mark_start_frame");
-  var items = document.querySelectorAll('.mover');
-  var cachedScrollTop = document.body.scrollTop;
-  for (var i = 0; i &lt; items.length; i++) {
-    var phase = Math.sin((cachedScrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-  }</p>
+<pre><code>    function updatePositions() {
+      frame++;
+      window.performance.mark("mark_start_frame");
+      var items = document.querySelectorAll('.mover');
+      var cachedScrollTop = document.body.scrollTop;
+      for (var i = 0; i &lt; items.length; i++) {
+        var phase = Math.sin((cachedScrollTop / 1250) + (i % 5));
+        items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+      }
+</code></pre>
 
 <h3>
 <a id="results-1" class="anchor" href="#results-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h3>
 
 <ol>
-<li>Page Speed over 60fps during scrolling (via console.log)</li>
-<li>Time to resize under 5ms</li>
+<li>Page Speed over 60 fps during scrolling (via console.log)</li>
+<li>Time to resize under 5 ms</li>
 </ol>
 
 <h3>
@@ -254,17 +302,21 @@ function updatePositions() {
 </li>
 </ol>
       </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Frontend-nanodegree-mobile-portfolio maintained by <a href="https://github.com/bt7893">bt7893</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/bt7893">bt7893</a> can be found on <a href="https://github.com/bt7893/frontend-nanodegree-mobile-portfolio">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
       </footer>
+
     </div>
 
     
-
   </body>
 </html>
