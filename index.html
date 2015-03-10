@@ -1,125 +1,270 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content=" FILL ME IN ">
-    <meta name="author" content=" FILL ME IN ">
-    <title>Cameron Pittman: Portfolio</title>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Frontend-nanodegree-mobile-portfolio : Project P4: Website Optimization">
 
-    <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
-    <!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <style type="text/css">
-    html {
-      font-size: 100%;
-      overflow-y: scroll;
-      -webkit-tap-highlight-color: rgba(0,0,0,0);
-      -ms-text-size-adjust: 100%;
-      -webkit-text-size-adjust: none;
-    }
-    body { margin: 0; font-size: 14px; line-height: 1.61; font-weight: 400; }
-    body, button, input, select, textarea { font-family: 'Open Sans', sans-serif; color: #333; }
-
-    a { color: #12C; }
-    a:visited { color: #61C; }
-    a:focus { outline: thin dotted; }
-    a:hover, a:active { color: #c00; outline: 0; }
-
-    b, strong { font-weight: bold; }
-    pre, code { font-family: monospace, monospace; font-size: 1em; }
-    ul, ol { margin: 1em 0; padding: 0 0 0 20px; }
-    img { border: 0; max-width: 100%; }
-
-    body { background: #fff; }
-    header, footer, .container { max-width: 45em; margin: 0 auto; }
-
-    header { padding: 0 0.5em; color: #C90B0B; }
-    header img { border-radius: 40px; float: left; }
-    header p { font-size:1.5em; font-weight: bold; padding-left: 4em;}
-    header p span { font-size: 0.8em; font-weight: normal;}
-
-    .hero { padding: 2em; background-color: #f8f8f8; font-size:1.2em;
-      border-bottom: 1px solid #ccc;
-      border-top: 1px solid #ccc;
-    }
-
-    .content { padding: 1em 1em; }
-    .content li { list-style-type: none; font-size: 1.1em;}
-    li img { float:left; padding-right: 1em; }
-    li p { font-size: 0.9em; font-style: italic; }
-
-    footer {
-      padding: 0 0.5em;
-      border-top: 1px solid #ccc;
-    }
-    footer span { float: right; font-style: italic; }
-
-    /* Smartphones (portrait) */
-    @media only screen and (max-width: 480px) {
-      body { font-size: 12px;}
-      header p { padding-left: 4.5em;}
-    }
-    </style>
-
-    <!-- <link href="css/style.css" rel="stylesheet"> -->
-
-    <link href="css/print.css" rel="stylesheet" media="print">
-
-    <script>
-      (function(w,g){w['GoogleAnalyticsObject']=g;
-      w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
-
-      // TODO: replace with your Google Analytics profile ID.
-      ga('create', 'UA-XXXX-Y');
-      ga('send', 'pageview');
-    </script>
-    <script async src="http://www.google-analytics.com/analytics.js"></script>
-    <script async src="js/perfmatters.js"></script>
+    <title>Frontend-nanodegree-mobile-portfolio</title>
   </head>
 
   <body>
 
-    <header>
-      <a href="/"><img src="img/profilepic.jpg"></a>
-      <p>Cameron Pittman<br><span>Course Developer</span></p>
-    </header>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/bt7893/frontend-nanodegree-mobile-portfolio">View on GitHub</a>
 
-    <div class="container">
-      <div class="hero">
-        <strong>I love web development!</strong> This is a template for a simple portfolio. I decided to use it to showcase a few Udacity courses I've taken and some teaching work, but you can use it to showcase any kind of project that you want the world to see :) <br> Contact me: me@email.com
-      </div>
+          <h1 id="project_title">Frontend-nanodegree-mobile-portfolio</h1>
+          <h2 id="project_tagline">Project P4: Website Optimization</h2>
 
-      <div class="content">
-        <ul>
-          <li>
-            <img src="https://lh4.ggpht.com/kJEnfqhPvtm4m3EneSZ4fWYGS8lW4YNhEjk6zPkyrQaBUHc-2Y_ElDic99NHI0h-UBLXVbRCjFybFvrWxdk=s100">
-            <a href="project-2048.html">Build Your Own 2048!</a>
-            <p>I made my own version of 2048. How cool is that!?</p>
-          </li>
-
-          <li>
-            <img src="https://lh6.ggpht.com/f_0W8h__3G99CWTjnMjD8BUKm7yp2-wJyApLtTwFoFtlal2ULf_JgHIsOQq2NiYfKOdMlXlMHDKNo5XVZLs=s100">
-            <a href="project-webperf.html">Website Performance Optimization</a>
-            <p>Hey... this class looks familiar.</p>
-          </li>
-
-          <li>
-            <img src="https://lh5.ggpht.com/IKdCmTWn8a2nMhlwMYzryvzRN5CUZAOBr4tDrEAbszV7TIFe9pRAInA4kkYcgTXwrifJsBEsq1agTueuu-g=s100">
-            <a href="project-mobile.html">Mobile Web Development</a>
-            <p>Making mobile apps isn't so hard after all.</p>
-          </li>
-
-          <li>
-            <img style="width: 100px;" src="views/images/pizzeria.jpg">
-            <a href="views/pizza.html">Cam's Pizzeria</a>
-            <p>Who wants a performant pizza?</p>
-          </li>
-        </ul>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/bt7893/frontend-nanodegree-mobile-portfolio/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/bt7893/frontend-nanodegree-mobile-portfolio/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
     </div>
 
-    <footer>
-      <p>&copy; Web Performance 2014 <span id="crp-stats"></span></p>
-    </footer>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="website-performance-optimization" class="anchor" href="#website-performance-optimization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Website Performance Optimization:</h1>
+
+<h2>
+<a id="crp-for-indexhtml" class="anchor" href="#crp-for-indexhtml" aria-hidden="true"><span class="octicon octicon-link"></span></a>CRP for index.html</h2>
+
+<ol>
+<li>Launch the URL : bt7893.github.io/frontend-nanodegree-mobile-portfolio/index.html</li>
+</ol>
+
+<h3>
+<a id="optimizations-performed" class="anchor" href="#optimizations-performed" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optimizations Performed</h3>
+
+<ol>
+<li>Inline CSS styling:
+&gt; index.html - embedded the style.css file
+&gt; added media="print" for print.css since it is render blocking</li>
+<li>Optimized images:
+&gt; profilepic.jpg - reduced size, removed metadata</li>
+<li>Added async attribute for perfmatters.js:
+&gt; added the async attribute so that the script is executed asynchronously as soon as it is available.</li>
+<li>Minify js
+&gt; perfmatters.js --&gt; <a href="http://jscompress.com/">http://jscompress.com/</a>
+</li>
+<li>Added .htaccess file to leverage browser caching</li>
+</ol>
+
+<h4>
+<a id="results" class="anchor" href="#results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h4>
+
+<ol>
+<li>PageSpeed Insights:
+&gt; Mobile: 95/100
+&gt; Desktop: 96/100</li>
+</ol>
+
+<hr>
+
+<h2>
+<a id="cams-pizzeria" class="anchor" href="#cams-pizzeria" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cam's Pizzeria</h2>
+
+<ol>
+<li>Launch the URL : bt7893.github.com/frontend-nanodegree-mobile-portfolio/views/pizza.html</li>
+<li>Move the slider to change the pizza size (open web inspector console log to check the time it takes to redraw the page)</li>
+<li>Scrolling the page - the console log should show 60 frames under 1ms (which means each redraw is higher than 60fps)</li>
+</ol>
+
+<h3>
+<a id="optimizations-performed-1" class="anchor" href="#optimizations-performed-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optimizations Performed</h3>
+
+<ol>
+<li>Inline CSS styling:
+
+<ul>
+<li>pizza.html - embedded the style.css file</li>
+</ul>
+</li>
+<li>Optimized images:
+
+<ul>
+<li>pizza.png - reduced size and removed metadata</li>
+<li>pizzeria.jpg - reduced size and removed metadata</li>
+</ul>
+</li>
+<li>modified CSS .mover where "width: 100px" is added to eliminate the process of resizing during the iterative<br>
+function</li>
+<li>main.js file
+&gt; Please see detailed notes below</li>
+<li>Minify js
+&gt; main.js using <a href="http://jscompress.com/">Minify JS</a>
+</li>
+<li>Minify css
+&gt; bootstrap-grid.css using <a href="http://cssminifier.com/">CSS Minifier</a>
+</li>
+</ol>
+
+<h4>
+<a id="changing-pizza-sizes" class="anchor" href="#changing-pizza-sizes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changing Pizza Sizes</h4>
+
+<ol>
+<li>Modified the for loop to be more efficient</li>
+<li>Reduced number of sliding pizzas generated from 200 to 30. You only need 30 to populate the page.</li>
+<li>Removed the width and height style to eliminate the process of resizing. Pizza.png were resized in Photoshop as 
+100px x 77px. Metadata is removed to reduce filesize.</li>
+</ol>
+
+<h5>
+<a id="original" class="anchor" href="#original" aria-hidden="true"><span class="octicon octicon-link"></span></a>Original:</h5>
+
+<pre><code>  // Iterates through pizza elements on the page and changes their widths
+  function changePizzaSizes(size) {
+    for (var i = 0; i &lt; document.querySelectorAll(".randomPizzaContainer").length; i++) {
+      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+    }
+  }
+</code></pre>
+
+<h5>
+<a id="modified" class="anchor" href="#modified" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modified:</h5>
+
+<pre><code>  var randomPizza = document.querySelectorAll(".randomPizzaContainer"); // moved this variable so that it sits outside the function to reduce iterations to fetch the data.
+  // Iterates through pizza elements on the page and changes their widths
+  function changePizzaSizes(size) {
+    var dx = determineDx(document.querySelector(".randomPizzaContainer"), size);
+    var newwidth = (document.querySelector(".randomPizzaContainer").offsetWidth + dx) + 'px';
+    var pizzaCount = document.querySelectorAll(".randomPizzaContainer");
+    for (var i = pizzaCount.length; i--;) {
+      pizzaCount[i].style.width = newwidth;
+    }
+  }
+</code></pre>
+
+<h4>
+<a id="sliding-pizza-generator" class="anchor" href="#sliding-pizza-generator" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sliding Pizza Generator</h4>
+
+<ol>
+<li>Modified the for loop to be more efficient</li>
+<li>Reduced number of sliding pizzas generated from 200 to 30. You only need 30 to populate the page.</li>
+<li>Removed the width and height style to eliminate the process of resizing. Pizza.png were resized in Photoshop as 
+100px x 77px. Metadata is removed to reduce filesize.</li>
+</ol>
+
+<h5>
+<a id="original-1" class="anchor" href="#original-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Original:</h5>
+
+<pre><code>  document.addEventListener('DOMContentLoaded', function() {
+    var cols = 8;
+    var s = 256;
+    for (var i = 0; i &lt; 200; i++) {
+      var elem = document.createElement('img');
+      elem.className = 'mover';
+      elem.src = "images/pizza.png";
+      elem.style.height = "100px";
+      elem.style.width = "73px";
+      elem.basicLeft = (i % cols) * s;
+      elem.style.top = (Math.floor(i / cols) * s) + 'px';
+      document.querySelector("#movingPizzas1").appendChild(elem);
+    }
+    updatePositions();
+  });
+</code></pre>
+
+<h5>
+<a id="modified-1" class="anchor" href="#modified-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modified:</h5>
+
+<p>document.addEventListener('DOMContentLoaded', function() {
+  var cols = 8;
+  var s = 256;
+for (var cols = 8, s = 256, i = 30; i--; ) {
+    var elem = document.createElement('img');
+    elem.className = 'mover';
+    elem.src = "images/pizza.png";
+    elem.basicLeft = (i % cols) * s;
+    elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    movingPizzas1tag.appendChild(elem);
+  }
+  updatePositions();
+});</p>
+
+<h4>
+<a id="updatepositions" class="anchor" href="#updatepositions" aria-hidden="true"><span class="octicon octicon-link"></span></a>updatePositions</h4>
+
+<p>Added cachedScrollTop and placed it outside the for loop</p>
+
+<h5>
+<a id="original-2" class="anchor" href="#original-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Original:</h5>
+
+<p>function updatePositions() {
+  frame++;
+  window.performance.mark("mark_start_frame");</p>
+
+<p>var items = document.querySelectorAll('.mover');
+  for (var i = 0; i &lt; items.length; i++) {
+    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+  }</p>
+
+<h5>
+<a id="modified-2" class="anchor" href="#modified-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modified:</h5>
+
+<p>// Moves the sliding background pizzas based on scroll position
+function updatePositions() {
+  frame++;
+  window.performance.mark("mark_start_frame");
+  var items = document.querySelectorAll('.mover');
+  var cachedScrollTop = document.body.scrollTop;
+  for (var i = 0; i &lt; items.length; i++) {
+    var phase = Math.sin((cachedScrollTop / 1250) + (i % 5));
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+  }</p>
+
+<h3>
+<a id="results-1" class="anchor" href="#results-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h3>
+
+<ol>
+<li>Page Speed over 60fps during scrolling (via console.log)</li>
+<li>Time to resize under 5ms</li>
+</ol>
+
+<h3>
+<a id="references" class="anchor" href="#references" aria-hidden="true"><span class="octicon octicon-link"></span></a>References</h3>
+
+<ol>
+<li><a href="https://css-tricks.com/authoring-critical-fold-css/">https://css-tricks.com/authoring-critical-fold-css/</a></li>
+<li><a href="https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html">https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html</a></li>
+</ol>
+
+<h3>
+<a id="tools" class="anchor" href="#tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tools</h3>
+
+<ol>
+<li>Adobe Photoshop CS6 - <a href="https://www.adobe.com/products/photoshop.html?promoid=KLXLS">https://www.adobe.com/products/photoshop.html?promoid=KLXLS</a>
+</li>
+<li>ImageMagick - <a href="http://www.imagemagick.org/">http://www.imagemagick.org/</a>
+</li>
+<li>Minify JS - <a href="http://jscompress.com">http://jscompress.com</a>
+</li>
+<li>Minify CSS - <a href="http://cssminifier.com">http://cssminifier.com</a>
+</li>
+</ol>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Frontend-nanodegree-mobile-portfolio maintained by <a href="https://github.com/bt7893">bt7893</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
   </body>
 </html>
