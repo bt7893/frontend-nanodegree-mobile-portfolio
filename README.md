@@ -7,20 +7,20 @@
 ### Optimizations Performed
 
 1. Inline CSS styling:
-    > index.html - embedded the style.css file
-    > added media="print" for print.css since it is render blocking
+    - index.html - embedded the style.css file
+    - added media="print" for print.css since it is render blocking
 2. Optimized images:
-    > profilepic.jpg - reduced size, removed metadata
+    - profilepic.jpg - reduced size, removed metadata
 3. Added async attribute for perfmatters.js:
-    > added the async attribute so that the script is executed asynchronously as soon as it is available.
+    - added the async attribute so that the script is executed asynchronously as soon as it is available.
 4. Minify js
-    > perfmatters.js --> http://jscompress.com/
+    - perfmatters.js --> http://jscompress.com/
 5. Added .htaccess file to leverage browser caching
 
 #### Results
 1. PageSpeed Insights:
-    > Mobile: 95/100
-    > Desktop: 96/100
+    - Mobile: 95/100
+    - Desktop: 96/100
 
 
 ***
@@ -29,7 +29,7 @@
 ## Cam's Pizzeria
 1. Launch the URL : bt7893.github.com/frontend-nanodegree-mobile-portfolio/views/pizza.html
 2. Move the slider to change the pizza size (open web inspector console log to check the time it takes to redraw the page)
-3. Scrolling the page - the console log should show 60 frames under 1ms (which means each redraw is higher than 60fps)
+3. Scrolling the page - Console.log should show 60 frames under 1ms (which means each redraw is higher than 60 fps)
 
 ### Optimizations Performed
 1. Inline CSS styling:
@@ -37,20 +37,19 @@
 2. Optimized images:
    - pizza.png - reduced size and removed metadata
    - pizzeria.jpg - reduced size and removed metadata
-3. modified CSS .mover where "width: 100px" is added to eliminate the process of resizing during the iterative   
+3. Modified CSS .mover where "width: 100px" is added to eliminate the process of resizing during the iterative   
    function
 4. main.js file
-    > Please see detailed notes below
+    - Please see detailed notes below
 5. Minify js
-    > main.js using [Minify JS](http://jscompress.com/)
+    - Minified "main.js" using [Minify JS](http://jscompress.com/)
 6. Minify css
-    > bootstrap-grid.css using [CSS Minifier](http://cssminifier.com/)
+    - Minified "bootstrap-grid.css" using [CSS Minifier](http://cssminifier.com/)
 
 #### Changing Pizza Sizes
-1. Modified the for loop to be more efficient
-2. Reduced number of sliding pizzas generated from 200 to 30. You only need 30 to populate the page.
-3. Removed the width and height style to eliminate the process of resizing. Pizza.png were resized in Photoshop as 
-   100px x 77px. Metadata is removed to reduce filesize.
+1. Moved the variable "dx" and "newwitdh" and placed it outside the loop.
+2. Created a new variable "randomPizza" and placed it outside the loop.
+3. Modified the for loop to be more efficient.
 
 ##### Original:
       // Iterates through pizza elements on the page and changes their widths
@@ -74,7 +73,7 @@
       }
 
 #### Sliding Pizza Generator
-1. Modified the for loop to be more efficient
+1. Modified the for loop to be more efficient.
 2. Reduced number of sliding pizzas generated from 200 to 30. You only need 30 to populate the page.
 3. Removed the width and height style to eliminate the process of resizing. Pizza.png were resized in Photoshop as 
    100px x 77px. Metadata is removed to reduce filesize.
@@ -137,8 +136,8 @@ Added cachedScrollTop and placed it outside the for loop.
           }
 
 ### Results
-1. Page Speed over 60fps during scrolling (via console.log)
-2. Time to resize under 5ms
+1. Page Speed over 60 fps during scrolling (via console.log)
+2. Time to resize under 5 ms
 
 ### References
 1. https://css-tricks.com/authoring-critical-fold-css/
