@@ -97,44 +97,44 @@
       });
 
 ##### Modified:
-document.addEventListener('DOMContentLoaded', function() {
-  var cols = 8;
-  var s = 256;
-for (var cols = 8, s = 256, i = 30; i--; ) {
-    var elem = document.createElement('img');
-    elem.className = 'mover';
-    elem.src = "images/pizza.png";
-    elem.basicLeft = (i % cols) * s;
-    elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    movingPizzas1tag.appendChild(elem);
-  }
-  updatePositions();
-});
+        document.addEventListener('DOMContentLoaded', function() {
+          var cols = 8;
+          var s = 256;
+        for (var cols = 8, s = 256, i = 30; i--; ) {
+            var elem = document.createElement('img');
+            elem.className = 'mover';
+            elem.src = "images/pizza.png";
+            elem.basicLeft = (i % cols) * s;
+            elem.style.top = (Math.floor(i / cols) * s) + 'px';
+            movingPizzas1tag.appendChild(elem);
+          }
+          updatePositions();
+        });
 
 #### updatePositions
 Added cachedScrollTop and placed it outside the for loop.
 
 ##### Original:
-function updatePositions() {
-  frame++;
-  window.performance.mark("mark_start_frame");
-
-  var items = document.querySelectorAll('.mover');
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-  }
+        function updatePositions() {
+          frame++;
+          window.performance.mark("mark_start_frame");
+        
+          var items = document.querySelectorAll('.mover');
+          for (var i = 0; i < items.length; i++) {
+            var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+            items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+          }
 
 ##### Modified:
-function updatePositions() {
-  frame++;
-  window.performance.mark("mark_start_frame");
-  var items = document.querySelectorAll('.mover');
-  var cachedScrollTop = document.body.scrollTop;
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((cachedScrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-  }
+        function updatePositions() {
+          frame++;
+          window.performance.mark("mark_start_frame");
+          var items = document.querySelectorAll('.mover');
+          var cachedScrollTop = document.body.scrollTop;
+          for (var i = 0; i < items.length; i++) {
+            var phase = Math.sin((cachedScrollTop / 1250) + (i % 5));
+            items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+          }
 
 ### Results
 1. Page Speed over 60fps during scrolling (via console.log)
