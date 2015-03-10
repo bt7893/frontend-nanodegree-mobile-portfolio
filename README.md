@@ -2,7 +2,7 @@
 
 ## CRP for index.html
 
-1. Launch the URL : bt7893.github.com/frontend-nanodegree-mobile-portfolio/index.html
+1. Launch the URL : bt7893.github.io/frontend-nanodegree-mobile-portfolio/index.html
 
 ### Optimizations Performed
 
