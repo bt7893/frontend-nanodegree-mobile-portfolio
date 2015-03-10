@@ -76,7 +76,7 @@
 1. Modified the for loop to be more efficient.
 2. Reduced number of sliding pizzas generated from 200 to 30. You only need 30 to populate the page.
 3. Removed the width and height style to eliminate the process of resizing. Pizza.png were resized in Photoshop as 
-   100px x 77px. Metadata is removed to reduce filesize.
+   100px x 77px. Metadata removed to reduce filesize.
 
 ##### Original:
       document.addEventListener('DOMContentLoaded', function() {
